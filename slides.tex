@@ -76,8 +76,8 @@
 \begin{frame}{What Changed?}
   \begin{center}
     \begin{tikzpicture}[
-      box/.style={rounded corners=8pt, minimum width=3.8cm, minimum height=1.8cm,
-                  text width=3.4cm, align=center, font=\small},
+      box/.style={rounded corners=8pt, minimum width=3.4cm, minimum height=1.6cm,
+                  text width=3cm, align=center, font=\small},
       arr/.style={-{Stealth[length=8pt]}, line width=1.5pt, accent}
     ]
       \node[box, fill=gray!15] (old) {
@@ -85,12 +85,12 @@
         Rules written by\\humans\\[2pt]
         {\footnotesize ``If X then Y''}
       };
-      \node[box, fill=blue!10, right=2.5cm of old] (ml) {
+      \node[box, fill=blue!10, right=1.2cm of old] (ml) {
         \textbf{Machine Learning}\\[4pt]
         Learns patterns\\from data\\[2pt]
         {\footnotesize Fraud detection}
       };
-      \node[box, fill=green!10, right=2.5cm of ml] (llm) {
+      \node[box, fill=green!10, right=1.2cm of ml] (llm) {
         \textbf{LLMs (2023--)}\\[4pt]
         Reads, writes,\\and \emph{reasons}\\[2pt]
         {\footnotesize GPT-4, Claude}
@@ -191,8 +191,8 @@
   \vspace{0.3cm}
   \begin{center}
     \begin{tikzpicture}[
-      stp/.style={rounded corners=8pt, minimum width=3cm, minimum height=2cm,
-                   text width=2.6cm, align=center, font=\small, inner sep=6pt},
+      stp/.style={rounded corners=8pt, minimum width=2.6cm, minimum height=1.8cm,
+                   text width=2.2cm, align=center, font=\small, inner sep=5pt},
       arr/.style={-{Stealth[length=8pt]}, line width=1.5pt, darkbg}
     ]
       \node[stp, fill=blue!12] (q) {
@@ -201,19 +201,19 @@
         {\footnotesize ``What risks does JPM face?''}
       };
 
-      \node[stp, fill=amber!15, right=1.2cm of q] (search) {
+      \node[stp, fill=amber!15, right=0.7cm of q] (search) {
         \faSearch\\[4pt]
         \textbf{Search}\\[2pt]
         {\footnotesize Find relevant paragraphs}
       };
 
-      \node[stp, fill=green!12, right=1.2cm of search] (read) {
+      \node[stp, fill=green!12, right=0.7cm of search] (read) {
         \faFile\\[4pt]
         \textbf{Read}\\[2pt]
-        {\footnotesize AI reads the top 5 results}
+        {\footnotesize AI reads top 5 results}
       };
 
-      \node[stp, fill=purple!12, right=1.2cm of read] (ans) {
+      \node[stp, fill=purple!12, right=0.7cm of read] (ans) {
         \faRobot\\[4pt]
         \textbf{Answer}\\[2pt]
         {\footnotesize Cited, grounded response}
@@ -234,11 +234,11 @@
 
 \begin{frame}{How RAG Works Under the Hood}
   \begin{center}
-    \begin{tikzpicture}[
-      box/.style={rounded corners=6pt, minimum height=1.3cm, text width=3.2cm,
+    \begin{tikzpicture}[scale=0.85, every node/.style={transform shape},
+      box/.style={rounded corners=6pt, minimum height=1.3cm, text width=2.8cm,
                   align=center, font=\small, inner sep=5pt},
       db/.style={rounded corners=6pt, draw=accent, fill=blue!8,
-                 minimum width=2.5cm, minimum height=1.5cm, font=\small, align=center, inner sep=5pt},
+                 minimum width=2.2cm, minimum height=1.5cm, font=\small, align=center, inner sep=5pt},
       arr/.style={-{Stealth[length=7pt]}, line width=1.2pt}
     ]
       % Documents
@@ -248,13 +248,13 @@
       };
 
       % Chunking
-      \node[box, fill=amber!15] (chunk) at (4,2) {
+      \node[box, fill=amber!15] (chunk) at (3.8,2) {
         \faCut~\textbf{Chunk}\\
         {\footnotesize Split into 500-word\\paragraphs}
       };
 
       % Vector DB
-      \node[db] (vdb) at (8,2) {
+      \node[db] (vdb) at (7.6,2) {
         \textbf{Vector}\\
         \textbf{Database}
       };
@@ -264,17 +264,17 @@
         \faUser~\textbf{Question}
       };
 
-      \node[box, fill=green!10] (retrieve) at (4,-0.5) {
+      \node[box, fill=green!10] (retrieve) at (3.8,-0.5) {
         \faSearch~\textbf{Retrieve}\\
         {\footnotesize Top 5 matches}
       };
 
-      \node[box, fill=purple!10] (llm) at (8,-0.5) {
+      \node[box, fill=purple!10] (llm) at (7.6,-0.5) {
         \faRobot~\textbf{LLM}\\
         {\footnotesize Synthesise answer}
       };
 
-      \node[box, fill=accent2!10] (answer) at (12,-0.5) {
+      \node[box, fill=accent2!10] (answer) at (11.4,-0.5) {
         \faCheckCircle~\textbf{Answer}\\
         {\footnotesize With citations}
       };
@@ -293,7 +293,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Embeddings: How Machines ``Understand'' Text}
+\begin{frame}[shrink=10]{Embeddings: How Machines ``Understand'' Text}
   \begin{center}
     \begin{tikzpicture}[scale=0.85]
       % Axes
@@ -338,8 +338,8 @@
 \begin{frame}{From Chatbot to Agent}
   \begin{center}
     \begin{tikzpicture}[
-      box/.style={rounded corners=8pt, minimum width=5.5cm, minimum height=3cm,
-                  text width=5cm, align=left, font=\small, inner sep=10pt}
+      box/.style={rounded corners=8pt, minimum width=5cm, minimum height=3cm,
+                  text width=4.6cm, align=left, font=\small, inner sep=8pt}
     ]
       \node[box, fill=gray!10] (chat) {
         \textbf{\large\faComments~Chatbot}\\[6pt]
@@ -349,7 +349,7 @@
         \faAngleRight~Cannot plan
       };
 
-      \node[box, fill=accent!8, right=1.5cm of chat] (agent) {
+      \node[box, fill=accent!8, right=0.8cm of chat] (agent) {
         \textbf{\large\color{accent}\faRobot~Agent}\\[6pt]
         \faAngleRight~Complex goal $\to$ multi-step plan\\
         \faAngleRight~Remembers what it found\\
@@ -363,19 +363,19 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{The Agentic Loop}
+\begin{frame}[shrink=5]{The Agentic Loop}
   \begin{center}
     \begin{tikzpicture}[
-      stp/.style={rounded corners=8pt, minimum width=2.5cm, minimum height=1.5cm,
-                   align=center, font=\small\bfseries, inner sep=5pt},
+      stp/.style={rounded corners=8pt, minimum width=2cm, minimum height=1.3cm,
+                   align=center, font=\small\bfseries, inner sep=4pt},
       arr/.style={-{Stealth[length=7pt]}, line width=1.5pt, darkbg}
     ]
       \node[stp, fill=blue!15] (goal) at (0,0) {\faFlag\\Goal};
-      \node[stp, fill=amber!20] (plan) at (3.5,0) {\faClipboardList\\Plan};
-      \node[stp, fill=green!15] (act) at (7,0) {\faWrench\\Act};
-      \node[stp, fill=purple!15] (observe) at (10.5,0) {\faEye\\Observe};
-      \node[stp, fill=red!10] (reflect) at (7,-3) {\faBrain\\Reflect};
-      \node[stp, fill=accent2!15] (answer) at (14,0) {\faCheckCircle\\Answer};
+      \node[stp, fill=amber!20] (plan) at (2.6,0) {\faClipboardList\\Plan};
+      \node[stp, fill=green!15] (act) at (5.2,0) {\faWrench\\Act};
+      \node[stp, fill=purple!15] (observe) at (7.8,0) {\faEye\\Observe};
+      \node[stp, fill=red!10] (reflect) at (5.2,-2.5) {\faBrain\\Reflect};
+      \node[stp, fill=accent2!15] (answer) at (10.4,0) {\faCheckCircle\\Answer};
 
       \draw[arr] (goal) -- (plan);
       \draw[arr] (plan) -- (act);
@@ -383,7 +383,7 @@
       \draw[arr] (observe) -- (answer) node[midway, above, font=\tiny\color{gray}] {done?};
 
       % Loop back
-      \draw[arr, accent4] (observe.south) -- ++(0,-0.8) -| (reflect.east);
+      \draw[arr, accent4] (observe.south) -- ++(0,-0.6) -| (reflect.east);
       \draw[arr, accent4] (reflect.west) -| (plan.south);
 
       \node[font=\footnotesize\color{accent4}, below=0.1cm of reflect] {Need more info? Loop back.};
@@ -399,7 +399,7 @@
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Agent Tools = Analyst Toolkit}
+\begin{frame}[shrink=10]{Agent Tools = Analyst Toolkit}
   \begin{center}
     \begin{tikzpicture}[
       tool/.style={rounded corners=6pt, minimum width=4cm, minimum height=1.3cm,
@@ -441,17 +441,17 @@
 \begin{frame}{Our Dataset}
   \begin{center}
     \begin{tikzpicture}
-      \node[rounded corners=10pt, fill=lightbg, text width=13cm, align=center,
-            inner sep=15pt, font=\large] {
+      \node[rounded corners=10pt, fill=lightbg, text width=10cm, align=center,
+            inner sep=12pt, font=\large] {
         \textbf{458 SEC 10-K Filings}\\[6pt]
         \normalsize
-        100 S\&P 100 companies $\times$ up to 5 years\\[12pt]
+        100 S\&P 100 companies $\times$ up to 5 years\\[10pt]
         \begin{tikzpicture}
           \foreach \sector/\col/\x in {
-            Tech/accent/0, Banking/accent3/2.5, Healthcare/accent2/5,
-            Energy/accent4/7.5, Consumer/purple/10, Industrial/gray/12.5} {
-            \node[rounded corners=4pt, fill=\col!15, minimum width=2cm,
-                  minimum height=0.8cm, font=\footnotesize\bfseries] at (\x,0) {\sector};
+            Tech/accent/0, Banking/accent3/1.7, Health/accent2/3.4,
+            Energy/accent4/5.1, Consumer/purple/6.8, Industrial/gray/8.5} {
+            \node[rounded corners=4pt, fill=\col!15, minimum width=1.5cm,
+                  minimum height=0.6cm, font=\scriptsize\bfseries] at (\x,0) {\sector};
           }
         \end{tikzpicture}
       };
@@ -469,16 +469,16 @@
 \begin{frame}{The Pipeline We Built}
   \begin{center}
     \begin{tikzpicture}[
-      stp/.style={rounded corners=6pt, minimum height=1.2cm, text width=2.8cm,
+      stp/.style={rounded corners=6pt, minimum height=1.2cm, text width=2.2cm,
                   align=center, font=\footnotesize, inner sep=4pt},
       arr/.style={-{Stealth[length=6pt]}, line width=1.2pt, darkbg},
       lbl/.style={font=\tiny\color{gray}, align=center}
     ]
       \node[stp, fill=gray!15] (raw) at (0,0) {\textbf{Raw HTML}\\10-K filings};
-      \node[stp, fill=amber!15] (clean) at (3.2,0) {\textbf{Clean Text}\\Strip formatting};
-      \node[stp, fill=blue!10] (chunk) at (6.4,0) {\textbf{Chunks}\\500-word windows};
-      \node[stp, fill=green!10] (embed) at (9.6,0) {\textbf{Vectors}\\Embed text};
-      \node[stp, fill=purple!10] (index) at (12.8,0) {\textbf{Index}\\FAISS search};
+      \node[stp, fill=amber!15] (clean) at (2.7,0) {\textbf{Clean Text}\\Strip formatting};
+      \node[stp, fill=blue!10] (chunk) at (5.4,0) {\textbf{Chunks}\\500-word windows};
+      \node[stp, fill=green!10] (embed) at (8.1,0) {\textbf{Vectors}\\Embed text};
+      \node[stp, fill=purple!10] (index) at (10.8,0) {\textbf{Index}\\FAISS search};
 
       \draw[arr] (raw) -- (clean);
       \draw[arr] (clean) -- (chunk);
@@ -518,8 +518,8 @@
 \begin{frame}{The Upgrade Path}
   \begin{center}
     \begin{tikzpicture}[
-      level/.style={rounded corners=6pt, minimum width=13cm, minimum height=1.1cm,
-                    text width=12.5cm, align=left, font=\small, inner sep=6pt},
+      level/.style={rounded corners=6pt, minimum width=10cm, minimum height=1.1cm,
+                    text width=9.5cm, align=left, font=\small, inner sep=6pt},
       arr/.style={-{Stealth[length=5pt]}, line width=1pt, gray}
     ]
       \node[level, fill=gray!10] (l0) at (0,4) {
@@ -545,17 +545,17 @@
 
       % Annotations
       \draw[decorate, decoration={brace, amplitude=8pt, mirror}, accent]
-        (6.8, 4.3) -- (6.8, 2.4) node[midway, right=10pt, font=\footnotesize, text=accent] {Today's demo};
+        (5.8, 4.3) -- (5.8, 2.4) node[midway, right=10pt, font=\footnotesize, text=accent] {Today's demo};
       \draw[decorate, decoration={brace, amplitude=8pt, mirror}, accent2]
-        (6.8, 1.7) -- (6.8, -0.2) node[midway, right=10pt, font=\footnotesize, text=accent2] {With OpenAI API};
+        (5.8, 1.7) -- (5.8, -0.2) node[midway, right=10pt, font=\footnotesize, text=accent2] {With OpenAI API};
     \end{tikzpicture}
   \end{center}
 \end{frame}
 
-\begin{frame}{TF-IDF vs OpenAI Embeddings}
+\begin{frame}[shrink=10]{TF-IDF vs OpenAI Embeddings}
   \begin{center}
     \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{l >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm}}
+    \begin{tabular}{l >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm}}
       \toprule
       & \textbf{TF-IDF} & \textbf{OpenAI Embeddings} \\
       \midrule
@@ -592,28 +592,28 @@
 \begin{frame}{Use Cases Across the Bank}
   \begin{center}
     \begin{tikzpicture}[
-      card/.style={rounded corners=6pt, minimum width=4.8cm, minimum height=2cm,
-                   text width=4.4cm, align=left, font=\small, inner sep=8pt}
+      card/.style={rounded corners=6pt, minimum width=4.2cm, minimum height=1.8cm,
+                   text width=3.8cm, align=left, font=\small, inner sep=6pt}
     ]
-      \node[card, fill=blue!8] (risk) at (0,2.2) {
-        \textbf{\color{accent}\faShield*~Risk Management}\\[3pt]
-        {\footnotesize ``Flag all material litigation across 50 counterparty filings''}
+      \node[card, fill=blue!8] (risk) at (0,2) {
+        \textbf{\color{accent}\faShield*~Risk Mgmt}\\[3pt]
+        {\footnotesize ``Flag material litigation across 50 counterparty filings''}
       };
-      \node[card, fill=green!8] (comp) at (5.5,2.2) {
+      \node[card, fill=green!8] (comp) at (4.8,2) {
         \textbf{\color{accent2}\faBalanceScale~Compliance}\\[3pt]
-        {\footnotesize ``Do our portfolio companies disclose TCFD-aligned climate risks?''}
+        {\footnotesize ``Do portfolio companies disclose TCFD climate risks?''}
       };
       \node[card, fill=amber!10] (credit) at (0,-0.5) {
         \textbf{\color{accent3}\faUniversity~Credit Analysis}\\[3pt]
         {\footnotesize ``Compare debt covenants across 10 borrowers''}
       };
-      \node[card, fill=purple!8] (ma) at (5.5,-0.5) {
+      \node[card, fill=purple!8] (ma) at (4.8,-0.5) {
         \textbf{\color{purple}\faHandshake~M\&A Due Diligence}\\[3pt]
-        {\footnotesize ``Review target's risk factors, contracts, and contingent liabilities''}
+        {\footnotesize ``Review target's risk factors and contingent liabilities''}
       };
-      \node[card, fill=red!6] (audit) at (2.75,-3.2) {
+      \node[card, fill=red!6] (audit) at (2.4,-2.9) {
         \textbf{\color{accent4}\faClipboardCheck~Audit}\\[3pt]
-        {\footnotesize ``Verify extracted figures match the original filing --- automatically''}
+        {\footnotesize ``Verify extracted figures match the original filing''}
       };
     \end{tikzpicture}
   \end{center}
@@ -623,23 +623,22 @@
   \begin{center}
     \begin{tikzpicture}
       \foreach \task/\human/\ai/\y in {
-        {Read one 10-K filing}/4 hours/2 minutes/4,
-        {Compare 5 companies on a topic}/2 days/5 minutes/2.8,
-        {Screen 50 filings for risk X}/1 week/15 minutes/1.6,
+        {Read one 10-K filing}/4 hours/2 min/4,
+        {Compare 5 companies}/2 days/5 min/2.8,
+        {Screen 50 filings for risk X}/1 week/15 min/1.6,
         {Quarterly portfolio review}/2 weeks/1 hour/0.4} {
-        \node[font=\small, anchor=west, text width=5cm] at (0,\y) {\task};
-        \fill[gray!30, rounded corners=3pt] (5.5,\y-0.15) rectangle (9,\y+0.15);
-        \fill[accent4!60, rounded corners=3pt] (5.5,\y-0.15) rectangle (9,\y+0.15);
-        \node[font=\footnotesize, anchor=west, white] at (5.6,\y) {\human};
-        \fill[accent2!70, rounded corners=3pt] (9.5,\y-0.15) rectangle (10.2,\y+0.15);
-        \node[font=\footnotesize, anchor=west, white] at (9.6,\y) {\ai};
+        \node[font=\small, anchor=west, text width=4.2cm] at (0,\y) {\task};
+        \fill[accent4!60, rounded corners=3pt] (4.5,\y-0.15) rectangle (7.8,\y+0.15);
+        \node[font=\footnotesize, anchor=west, white] at (4.6,\y) {\human};
+        \fill[accent2!70, rounded corners=3pt] (8.2,\y-0.15) rectangle (9.2,\y+0.15);
+        \node[font=\footnotesize, anchor=west, white] at (8.3,\y) {\ai};
       }
 
       % Legend
-      \fill[accent4!60, rounded corners=2pt] (5.5,-0.7) rectangle (6.1,-0.4);
-      \node[font=\footnotesize, anchor=west] at (6.2,-0.55) {Human};
-      \fill[accent2!70, rounded corners=2pt] (8,-0.7) rectangle (8.6,-0.4);
-      \node[font=\footnotesize, anchor=west] at (8.7,-0.55) {AI Agent};
+      \fill[accent4!60, rounded corners=2pt] (4.5,-0.7) rectangle (5.1,-0.4);
+      \node[font=\footnotesize, anchor=west] at (5.2,-0.55) {Human};
+      \fill[accent2!70, rounded corners=2pt] (7,-0.7) rectangle (7.6,-0.4);
+      \node[font=\footnotesize, anchor=west] at (7.7,-0.55) {AI Agent};
     \end{tikzpicture}
   \end{center}
 
@@ -680,24 +679,24 @@
 \begin{frame}{Governance Framework}
   \begin{center}
     \begin{tikzpicture}[
-      layer/.style={rounded corners=8pt, minimum width=12cm, minimum height=1.4cm,
+      layer/.style={rounded corners=8pt, minimum width=10cm, minimum height=1.3cm,
                     align=center, font=\small, inner sep=6pt}
     ]
       \node[layer, fill=accent4!10] (l1) at (0,3.5) {
         \textbf{Human-in-the-Loop} --- Every AI output reviewed before action
       };
-      \node[layer, fill=accent3!10] (l2) at (0,1.8) {
-        \textbf{Source Citations} --- Every claim traceable to a specific filing \& page
+      \node[layer, fill=accent3!10] (l2) at (0,1.9) {
+        \textbf{Source Citations} --- Every claim traceable to a filing \& page
       };
-      \node[layer, fill=accent!10] (l3) at (0,0.1) {
-        \textbf{Audit Trail} --- Full log of agent reasoning, tool calls, and sources
+      \node[layer, fill=accent!10] (l3) at (0,0.3) {
+        \textbf{Audit Trail} --- Full log of reasoning, tool calls, and sources
       };
-      \node[layer, fill=accent2!10] (l4) at (0,-1.6) {
-        \textbf{Access Controls} --- Data classification, API key management, PII filtering
+      \node[layer, fill=accent2!10] (l4) at (0,-1.3) {
+        \textbf{Access Controls} --- Data classification, API keys, PII filtering
       };
 
       \draw[decorate, decoration={brace, amplitude=10pt}, darkbg, thick]
-        (6.5, 4.2) -- (6.5, -2.3)
+        (5.5, 4.2) -- (5.5, -2.0)
         node[midway, right=12pt, font=\small, text width=2.5cm, align=left] {
           Defence in depth
         };
