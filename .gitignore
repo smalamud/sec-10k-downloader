@@ -4,7 +4,7 @@ __pycache__/
 .env
 venv/
 .venv/
-10k_filings/
 *.egg-info/
 dist/
 build/
+.DS_Store
